@@ -73,8 +73,15 @@ public class FriendsDbTest {
 
         Cursor cursor = dbRead.query(FriendsDatabaseConstants.TABLE_FRIENDS, null, "first_name = ?", new String[]{"Cruz"}, null, null, null);
 
-        Assert.assertTrue(cursor.moveToNext());
+        while (cursor.moveToNext()){
+            int indexFirstNameColumn = cursor.getColumnIndex(FriendsDatabaseConstants.COLUMN_FIRST_NAME);
+            String name = cursor.getString(indexFirstNameColumn);
 
+            Assert.assertEquals("Cruz", name);
+            Log.d("Test", name);
+        }
+
+        cursor.close();
         openHelper.close();
         context.deleteDatabase(FriendsDatabaseConstants.DATABASE_NAME);
 

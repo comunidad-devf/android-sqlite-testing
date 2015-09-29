@@ -1,9 +1,12 @@
 package com.devf.sqlite_sample;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.devf.sqlite_sample.data.FriendsOpenHelper;
 
 public class MainActivity extends AppCompatActivity {
 
